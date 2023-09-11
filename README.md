@@ -1,5 +1,5 @@
 # HTML_Templates
-Trainings with HTML Templates
+Pieces of training with HTML Templates
 
 **Overview:**
 The "HTML_Templates" project is a personal learning project designed to enhance proficiency in building HTTP servers
