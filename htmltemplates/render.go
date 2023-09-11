@@ -1,7 +1,8 @@
 package htmltemplates
 
 import (
-	"fmt"
+	"embed"
+	"html/template"
 	"io"
 )
 
@@ -9,13 +10,18 @@ type ViewData struct {
 	Strings []string
 }
 
-func Render(w io.Writer, data ViewData) error {
-	var result string
-	result += "<ul>"
-	for _, s := range data.Strings {
-		result += fmt.Sprintf("<li>%s</li>", s)
+var (
+	//go:embed templates/*
+	viewTemplate embed.FS
+)
+
+func Render(w io.Writer, view ViewData) error {
+	templ, err := template.ParseFS(viewTemplate, "templates/asciiart.gohtml")
+	if err != nil {
+		return err
 	}
-	result += "</ul>"
-	_, err := fmt.Fprint(w, result)
-	return err
+	if err := templ.Execute(w, view); err != nil {
+		return err
+	}
+	return nil
 }

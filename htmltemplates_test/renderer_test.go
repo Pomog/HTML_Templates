@@ -8,14 +8,14 @@ import (
 
 func TestRender(t *testing.T) {
 	var (
-		aPost = htmltemplates.ViewData{
+		test = htmltemplates.ViewData{
 			Strings: []string{"hello", "world"},
 		}
 	)
 
-	t.Run("it []string into HTML", func(t *testing.T) {
+	t.Run("it converts []string into HTML", func(t *testing.T) {
 		buf := bytes.Buffer{}
-		err := htmltemplates.Render(&buf, aPost)
+		err := htmltemplates.Render(&buf, test)
 		if err != nil {
 			t.Fatal(err)
 		}
