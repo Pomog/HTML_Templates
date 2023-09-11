@@ -4,12 +4,15 @@ import (
 	"HTML_Templates/htmltemplates"
 	"bytes"
 	"testing"
+
+	approvals "github.com/approvals/go-approval-tests"
 )
 
 func TestRender(t *testing.T) {
 	var (
 		test = htmltemplates.ViewData{
 			Strings: []string{"hello", "world"},
+			Author:  "PomoBlin",
 		}
 	)
 
@@ -19,10 +22,7 @@ func TestRender(t *testing.T) {
 		if err != nil {
 			t.Fatal(err)
 		}
-		got := buf.String()
-		want := `<ul><li>hello</li><li>world</li></ul>`
-		if got != want {
-			t.Errorf("got '%s' want '%s'", got, want)
-		}
+		approvals.VerifyString(t, buf.String())
 	})
+
 }

@@ -8,6 +8,7 @@ import (
 
 type ViewData struct {
 	Strings []string
+	Author  string
 }
 
 var (
@@ -16,7 +17,7 @@ var (
 )
 
 func Render(w io.Writer, view ViewData) error {
-	templ, err := template.ParseFS(viewTemplate, "templates/asciiart.gohtml")
+	templ, err := template.ParseFS(viewTemplate, "templates/*.gohtml")
 	if err != nil {
 		return err
 	}

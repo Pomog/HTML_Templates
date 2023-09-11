@@ -1,0 +1,19 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ASCII Art</title>
+</head>
+<body>
+
+<ul><li>hello</li><li>world</li></ul>
+
+</main>
+<footer>
+    <p>Created by PomoBlin</p>
+</footer>
+</body>
+</html>
+
+
