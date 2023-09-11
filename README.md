@@ -15,7 +15,4 @@ and master the essential skills required for web development in Go.
 - [Contributing](#contributing)
 - [License](#license)
 
-<!-- Additional sections as needed -->
-
-Feel free to modify and expand this README to include any specific details, instructions, or sections relevant to your training project.
 
