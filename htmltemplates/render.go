@@ -11,17 +11,25 @@ type ViewData struct {
 	Author  string
 }
 
+type ViewDataRenderer struct {
+	templ *template.Template
+}
+
 var (
 	//go:embed templates/*
 	viewTemplate embed.FS
 )
 
-func Render(w io.Writer, view ViewData) error {
+func NewRenderer() (*ViewDataRenderer, error) {
 	templ, err := template.ParseFS(viewTemplate, "templates/*.gohtml")
 	if err != nil {
-		return err
+		return nil, err
 	}
-	if err := templ.Execute(w, view); err != nil {
+	return &ViewDataRenderer{templ: templ}, nil
+}
+
+func (r *ViewDataRenderer) Render(w io.Writer, v ViewData) error {
+	if err := r.templ.Execute(w, v); err != nil {
 		return err
 	}
 	return nil
