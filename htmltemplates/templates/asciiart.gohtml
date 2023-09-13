@@ -1,10 +1,12 @@
-{{template "top".}}
+{{ define "asciiart" }}
+    {{template "top".}}
 
-    <ul>
-        {{range .Strings}}
-            <li>{{myCustomFunction .}}</li>
-        {{end}}
-    </ul>
+        <ul>
+            {{range .Strings}}
+                <li>{{myCustomFunction .}}</li>
+            {{end}}
+        </ul>
 
-{{template "bottom".}}
+    {{template "bottom".}}
+{{ end }}
 

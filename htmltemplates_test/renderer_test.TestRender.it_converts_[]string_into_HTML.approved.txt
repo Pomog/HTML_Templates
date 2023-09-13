@@ -1,4 +1,5 @@
 
+    
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,20 +9,19 @@
 <body>
 
 
-    <ul>
-        
-            <li>HELLO</li>
-        
-            <li>WORLD</li>
-        
-    </ul>
+        <ul>
+            
+                <li>HELLO</li>
+            
+                <li>WORLD</li>
+            
+        </ul>
 
-
+    
 </main>
 <footer>
     <p>Created by PomoBlin</p>
 </footer>
 </body>
 </html>
-
 

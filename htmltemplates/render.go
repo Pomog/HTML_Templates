@@ -29,7 +29,7 @@ func NewRenderer() (*ViewDataRenderer, error) {
 		},
 	}
 
-	templ, err := template.New("asciiart.gohtml").Funcs(customFuncs).ParseFS(viewTemplate, "templates/*.gohtml")
+	templ, err := template.New("asciiart").Funcs(customFuncs).ParseFS(viewTemplate, "templates/*.gohtml")
 	if err != nil {
 		return nil, err
 	}
