@@ -4,6 +4,7 @@ import (
 	"embed"
 	"html/template"
 	"io"
+	"strings"
 )
 
 type ViewData struct {
@@ -21,7 +22,14 @@ var (
 )
 
 func NewRenderer() (*ViewDataRenderer, error) {
-	templ, err := template.ParseFS(viewTemplate, "templates/*.gohtml")
+	// Define custom functions in a FuncMap
+	customFuncs := template.FuncMap{
+		"myCustomFunction": func(s string) string {
+			return strings.ToUpper(s)
+		},
+	}
+
+	templ, err := template.New("asciiart.gohtml").Funcs(customFuncs).ParseFS(viewTemplate, "templates/*.gohtml")
 	if err != nil {
 		return nil, err
 	}

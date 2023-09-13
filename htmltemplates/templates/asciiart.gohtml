@@ -1,4 +1,10 @@
 {{template "top".}}
-<ul>{{range .Strings}}<li>{{.}}</li>{{end}}</ul>
+
+    <ul>
+        {{range .Strings}}
+            <li>{{myCustomFunction .}}</li>
+        {{end}}
+    </ul>
+
 {{template "bottom".}}
 
